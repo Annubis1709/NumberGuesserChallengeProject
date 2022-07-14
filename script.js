@@ -10,9 +10,9 @@ const getAbsoluteDistance = (targetNumber, guessNumber) => Math.abs(targetNumber
 
 const compareGuesses = (humanGuess, computerGuess, secretNumber) => {
     if (humanGuess >= 0 && humanGuess <= 9) {
-        const diffUser =  getAbsoluteDistance(secretNumber, humanGuess);
-        const diffComputer = getAbsoluteDistance(secretNumber, computerGuess);
-        return (diffUser <= diffComputer);
+        const distUser =  getAbsoluteDistance(secretNumber, humanGuess);
+        const distComputer = getAbsoluteDistance(secretNumber, computerGuess);
+        return (distUser <= distComputer);
     } else {
         alert('Sorry, your number is out of range. ' +
             'Please digit a number between 0 and 9');
