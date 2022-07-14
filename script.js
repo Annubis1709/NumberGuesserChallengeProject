@@ -6,18 +6,16 @@ let currentRoundNumber = 1;
 const generateTarget = () => Math.floor(Math.random() * 10);
 
 const secretNumber = generateTarget();
+const getAbsoluteDistance = (targetNumber, guessNumber) => Math.abs(targetNumber - guessNumber);
+
 const compareGuesses = (humanGuess, computerGuess, secretNumber) => {
-    const difUser =  Math.abs(secretNumber - humanGuess);
-    const difComputer = Math.abs(secretNumber - computerGuess);
-    return (difUser <= difComputer);
+    const diffUser =  getAbsoluteDistance(secretNumber, humanGuess);
+    const diffComputer = getAbsoluteDistance(secretNumber, computerGuess);
+    return (diffUser <= diffComputer);
 };
 
 const updateScore = (winner) => {
-    if (winner === 'human') {
-        humanScore++;
-    } else {
-        computerScore++;
-    }
+    (winner === 'human')? humanScore++ : computerScore++
 };
 
 const advanceRound = () => currentRoundNumber++;
